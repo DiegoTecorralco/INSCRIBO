@@ -24,4 +24,10 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 3. #### **Framework para Desarrollo FrontEnd:**
    ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. Basada en componentes y con un enfoque declarativo que mejora el rendimiento.
 
- 
+## Equipo de Desarrollo
+
+|Integrante|Contacto|Rol|Observaciones|
+|------------|--------|---|---|
+|Diego Salvador Tecorralco Martínez |[@DiegoTecorralco](https://github.com/DiegoTecorralco)|Lider de Documentación, Backend y Equipo|✅ Revisado y aprobado.|
+|Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|❌ Falta Revisión|
+|Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|❌ Falta Revisión|
