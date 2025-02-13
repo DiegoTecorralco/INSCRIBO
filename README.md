@@ -13,3 +13,15 @@ Este proyecto busca desarrollar una solución tecnológica eficiente y escalable
 ## Objetivos especificos
 A través de una interfaz web moderna y adaptable, los usuarios podrán visualizar su historial de accesos, recibir notificaciones en caso de eventos irregulares y los administradores podrán generar reportes detallados sobre la actividad dentro del bachillerato.
 Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autenticación mediante JWT, este sistema garantizará una experiencia segura y eficiente tanto para alumnos como para docentes.
+
+## **Lista de tecnologias**
+1. #### **Lenguajes de Desarrollo Backend:**
+   ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) Entorno de ejecución para JavaScript en el servidor. Permite construir aplicaciones escalables y eficientes con un modelo basado en eventos y sin bloqueo.
+   
+2. #### **Bases de datos:**
+  ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white) Base de datos NoSQL orientada a documentos que almacena datos en formato JSON. Es escalable, flexible y ampliamente utilizada en aplicaciones modernas.
+
+3. #### **Herramientas de diseño y desarrollo:**
+   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. Basada en componentes y con un enfoque declarativo que mejora el rendimiento.
+
+ 
