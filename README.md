@@ -32,4 +32,5 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|❌ Falta Revisión|
 |Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|❌ Falta Revisión|
 
-## Organigrama
+### Organigrama del Proyecto
+![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
