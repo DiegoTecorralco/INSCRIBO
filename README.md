@@ -13,7 +13,8 @@ Este proyecto busca desarrollar una solución tecnológica eficiente y escalable
 ## Objetivos especificos
 A través de una interfaz web moderna y adaptable, los usuarios podrán visualizar su historial de accesos, recibir notificaciones en caso de eventos irregulares y los administradores podrán generar reportes detallados sobre la actividad dentro del bachillerato.
 Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autenticación mediante JWT, este sistema garantizará una experiencia segura y eficiente tanto para alumnos como para docentes.
-Diagrama de gant![image](https://github.com/CarlosFosadoo/assets/cae16534-66ae-48b1-94b7-690f21708922)
+## **Diagrama de gant**
+Diagrama de gant![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/imagenn.png)
 
 
 
