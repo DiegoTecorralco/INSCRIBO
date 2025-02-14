@@ -13,6 +13,9 @@ Este proyecto busca desarrollar una solución tecnológica eficiente y escalable
 ## Objetivos especificos
 A través de una interfaz web moderna y adaptable, los usuarios podrán visualizar su historial de accesos, recibir notificaciones en caso de eventos irregulares y los administradores podrán generar reportes detallados sobre la actividad dentro del bachillerato.
 Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autenticación mediante JWT, este sistema garantizará una experiencia segura y eficiente tanto para alumnos como para docentes.
+Diagrama de gant![image](https://github.com/CarlosFosadoo/assets/cae16534-66ae-48b1-94b7-690f21708922)
+
+
 
 ## **Lista de tecnologias**
 1. #### **Lenguajes de Programación para Desarrollo Backend:**
@@ -30,7 +33,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |------------|--------|---|---|
 |Diego Salvador Tecorralco Martínez |[@DiegoTecorralco](https://github.com/DiegoTecorralco)|Lider de Documentación, Backend y Equipo|✅ Revisado y aprobado.|
 |Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|❌ Falta Revisión|
-|Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|❌ Falta Revisión|
+|Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|✅ Revisado y aprobado.|
 
 ### Organigrama del Proyecto
 ![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
