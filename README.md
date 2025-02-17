@@ -1,5 +1,11 @@
 # INSCRIBO
 Este proyecto va a tratar de Autumatizar el Registro de inscripciones de un Centro Escolar Medio Superior, con la finalidad de automatizar el proceso de inscripciones.
+### Paleta de colores 
+
+
+![Captura de pantalla 2025-02-17 153439](https://github.com/user-attachments/assets/69949b2c-18b5-46fd-a726-61aa8bb20f1a)
+
+
 
 ## Problematica 
 Actualmente, muchas instituciones enfrentan dificultades en la gestión del acceso de estudiantes y docentes, ya que dependen de métodos manuales que pueden ser poco eficientes y propensos a errores. Esto puede generar inconvenientes en el registro de asistencia, la supervisión del personal y la seguridad dentro del plantel.
