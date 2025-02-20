@@ -30,6 +30,11 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 3. #### **Framework para Desarrollo FrontEnd:**
    ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. Basada en componentes y con un enfoque declarativo que mejora el rendimiento.
 
+### Organigrama del Proyecto
+![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
+## **Diagrama de gant**
+![diagrama de gant de Inscribo](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/imagenn.png)
+
 ## Equipo de Desarrollo
 
 |Integrante|Contacto|Rol|Observaciones|
@@ -37,8 +42,3 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |Diego Salvador Tecorralco Martínez |[@DiegoTecorralco](https://github.com/DiegoTecorralco)|Lider de Documentación, Backend y Equipo|✅ Revisado y aprobado.|
 |Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|❌ Falta Revisión|
 |Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|✅ Revisado y aprobado.|
-
-### Organigrama del Proyecto
-![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
-## **Diagrama de gant**
-![diagrama de gant de Inscribo](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/imagenn.png)
