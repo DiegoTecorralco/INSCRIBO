@@ -30,6 +30,9 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 3. #### **Framework para Desarrollo FrontEnd:**
    ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. Basada en componentes y con un enfoque declarativo que mejora el rendimiento.
 
+### Logo
+![Logo Inscribo ](LOGO_In.jpeg)
+
 ### Organigrama del Proyecto
 ![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
 ## **Diagrama de gant**
