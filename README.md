@@ -33,7 +33,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 ### Organigrama del Proyecto
 ![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
 ## **Diagrama de gant**
-![diagrama de gant de Inscribo](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/imagenn.png)
+![diagrama de gant de Inscribo](./Assets/Gráfico%20Gantt%20Proyecto%20Azul%20Oscuro.jpg)
 
 ## Equipo de Desarrollo
 
