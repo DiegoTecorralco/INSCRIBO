@@ -1,7 +1,7 @@
 import app from './app.js'; // Importa la configuración de la app
-
+import mongoose from 'mongoose';
 // Conexión a la base de datos (MongoDB)
-mongoose.connect('mongodb://localhost:27017/tu_base_de_datos', {
+mongoose.connect('mongodb://127.0.0.1:27017/acces_control', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

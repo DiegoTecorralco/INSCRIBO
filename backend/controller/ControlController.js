@@ -26,4 +26,4 @@ const registerAccess = async (req, res) => {
   }
 };
 
-export { registerAccess };
+export default registerAccess ;

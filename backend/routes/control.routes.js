@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { registerAccess } from '../controllers/ControlController.js'; // Importa el controlador
+import  registerAccess  from '../controller/ControlController.js'; // Importa el controlador
 
 const router = Router();
 
