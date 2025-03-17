@@ -1,5 +1,6 @@
 import Control from '../models/Control.js';
 
+
 const findUserByStudentID = async (studentID) => {
   return await Control.findOne({ studentID });
 };
@@ -9,4 +10,10 @@ const saveAccessLog = async (usuario, tipo) => {
   return await usuario.save();
 };
 
-export { findUserByStudentID, saveAccessLog };
+
+
+
+
+
+
+export { findUserByStudentID, saveAccessLog};

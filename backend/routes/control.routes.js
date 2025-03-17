@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import  registerAccess  from '../controller/ControlController.js'; // Importa el controlador
+import registerAccess from '../controller/ControlController.js'; 
 
-const router = Router();
+
+const accessRouter = Router();
 
 // Ruta para registrar accesos (Entrada/Salida)
-router.post('/', registerAccess);
+accessRouter.post('/acceso', registerAccess);
 
-export default router;
+export default accessRouter;

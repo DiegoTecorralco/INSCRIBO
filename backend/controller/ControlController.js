@@ -1,4 +1,4 @@
-import { findUserByStudentID, saveAccessLog } from '../dao/controlDAO.js';
+import { findUserByStudentID, saveAccessLog} from '../dao/controlDAO.js';
 
 const registerAccess = async (req, res) => {
   const { studentID, tipo } = req.body; // Datos enviados por el lector RFID
@@ -25,5 +25,9 @@ const registerAccess = async (req, res) => {
     res.status(500).json({ message: 'Error en el servidor', error });
   }
 };
+
+
+
+    
 
 export default registerAccess ;
