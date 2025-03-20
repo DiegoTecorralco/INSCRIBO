@@ -1,17 +1,19 @@
-import clasesDao from '../dao/clasesDao.js';
+import claseDAO from '../dao/clasesDao.js';
 
-const getClases = async (req, res) => {
+const claseController = {};
+
+claseController.getClases = async (req, res) => {
     try {
-        const clases = await clasesDao.obtenerClases();
+        const clases = await claseDAO.obtenerClases();
         res.json(clases);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener las clases', error });
     }
 };
 
-const getClaseById = async (req, res) => {
+claseController.getClaseById = async (req, res) => {
     try {
-        const clase = await clasesDao.obtenerClasePorId(req.params.id);
+        const clase = await claseDAO.obtenerClasePorId(req.params.id);
         if (!clase) return res.status(404).json({ message: 'Clase no encontrada' });
         res.json(clase);
     } catch (error) {
@@ -19,18 +21,18 @@ const getClaseById = async (req, res) => {
     }
 };
 
-const createClase = async (req, res) => {
+claseController.createClase = async (req, res) => {
     try {
-        const nuevaClase = await clasesDao.crearClase(req.body);
+        const nuevaClase = await claseDAO.crearClase(req.body);
         res.status(201).json(nuevaClase);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear la clase', error });
     }
 };
 
-const updateClase = async (req, res) => {
+claseController.updateClase = async (req, res) => {
     try {
-        const claseActualizada = await clasesDao.actualizarClase(req.params.id, req.body);
+        const claseActualizada = await claseDAO.actualizarClase(req.params.id, req.body);
         if (!claseActualizada) return res.status(404).json({ message: 'Clase no encontrada' });
         res.json(claseActualizada);
     } catch (error) {
@@ -38,9 +40,9 @@ const updateClase = async (req, res) => {
     }
 };
 
-const deleteClase = async (req, res) => {
+claseController.deleteClase = async (req, res) => {
     try {
-        const claseEliminada = await clasesDao.eliminarClase(req.params.id);
+        const claseEliminada = await claseDAO.eliminarClase(req.params.id);
         if (!claseEliminada) return res.status(404).json({ message: 'Clase no encontrada' });
         res.json({ message: 'Clase eliminada con éxito' });
     } catch (error) {
@@ -48,10 +50,4 @@ const deleteClase = async (req, res) => {
     }
 };
 
-export default {
-    getClases,
-    getClaseById,
-    createClase,
-    updateClase,
-    deleteClase
-};
+export default claseController;

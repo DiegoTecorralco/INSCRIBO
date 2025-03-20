@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+import moment from 'moment-timezone';
 
 const controlSchema = new Schema({
   studentID: {
@@ -43,6 +44,10 @@ const controlSchema = new Schema({
     enum: ['Estudiante', 'Prefecto', 'Administrador','maestro'],
     default: 'Estudiante',
   },
+  createdAt: { 
+          type: Date, 
+          default: () => moment().tz("America/Mexico_City").toDate() 
+      }
 }, { 
   timestamps: true,
   versionKey: false 

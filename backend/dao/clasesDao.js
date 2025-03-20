@@ -1,15 +1,14 @@
 import Clase from '../models/Clase.js';
 
-const obtenerClases = async () => await Clase.find();
-const obtenerClasePorId = async (id) => await Clase.findById(id);
-const crearClase = async (data) => new Clase(data).save();
-const actualizarClase = async (id, data) => await Clase.findByIdAndUpdate(id, data, { new: true });
-const eliminarClase = async (id) => await Clase.findByIdAndDelete(id);
+const claseDAO = {};
 
-export default {
-    obtenerClases,
-    obtenerClasePorId,
-    crearClase,
-    actualizarClase,
-    eliminarClase
+claseDAO.obtenerClases = async () => await Clase.find();
+claseDAO.obtenerClasePorId = async (id) => await Clase.findById(id);
+claseDAO.crearClase = async (data) => new Clase(data).save();
+claseDAO.actualizarClase = async (id, data) => await Clase.findByIdAndUpdate(id, data, { new: true });
+claseDAO.eliminarClase = async (id) => await Clase.findByIdAndDelete(id);
+claseDAO.getByHorario = async (horario) => {
+    return await Clase.findOne({ horario });
 };
+
+export default claseDAO;
