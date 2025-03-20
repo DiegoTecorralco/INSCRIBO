@@ -6,7 +6,7 @@ import {Server} from "socket.io"
 import lecturaRouter from './routes/lectura.routes.js';
 import tarjetaRouter from './routes/tarjeta.routes.js';
 import Administrador from './models/Administrador.js';
-
+import getClases from './routes/clasesRoutes.js'
 
 // Configuración de la aplicación
 const app = express();
@@ -51,7 +51,7 @@ app.post('/login', async (req, res) => {
 // Rutas
 app.use('/api/',lecturaRouter); // Prefijo /api/acceso para las rutas del Control
 app.use('/api/',tarjetaRouter); // Prefijo /api/leer el control 
-
+app.use('/api/', getClases);
 
 // Configuración del puerto
 app.set('port', process.env.PORT || 6000);
