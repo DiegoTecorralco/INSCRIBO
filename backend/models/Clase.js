@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ClaseSchema = new mongoose.Schema({
     materia: { type: String, required: true },
@@ -7,5 +7,4 @@ const ClaseSchema = new mongoose.Schema({
     maestro: { type: String, required: true }
 }, { timestamps: true });
 
-const Clase = mongoose.model('Clase', ClaseSchema);
-module.exports = Clase;
+export default mongoose.model('Clase', ClaseSchema);

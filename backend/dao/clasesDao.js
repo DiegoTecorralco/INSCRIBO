@@ -1,27 +1,12 @@
-const Clase = require('../models/Clase');
+import Clase from '../models/Clase.js';
 
-const obtenerClases = async () => {
-    return await Clase.find();
-};
+const obtenerClases = async () => await Clase.find();
+const obtenerClasePorId = async (id) => await Clase.findById(id);
+const crearClase = async (data) => new Clase(data).save();
+const actualizarClase = async (id, data) => await Clase.findByIdAndUpdate(id, data, { new: true });
+const eliminarClase = async (id) => await Clase.findByIdAndDelete(id);
 
-const obtenerClasePorId = async (id) => {
-    return await Clase.findById(id);
-};
-
-const crearClase = async (data) => {
-    const nuevaClase = new Clase(data);
-    return await nuevaClase.save();
-};
-
-const actualizarClase = async (id, data) => {
-    return await Clase.findByIdAndUpdate(id, data, { new: true });
-};
-
-const eliminarClase = async (id) => {
-    return await Clase.findByIdAndDelete(id);
-};
-
-module.exports = {
+export default {
     obtenerClases,
     obtenerClasePorId,
     crearClase,

@@ -1,4 +1,4 @@
-const clasesDao = require('../dao/clasesDao');
+import clasesDao from '../dao/clasesDao.js';
 
 const getClases = async (req, res) => {
     try {
@@ -48,7 +48,7 @@ const deleteClase = async (req, res) => {
     }
 };
 
-module.exports = {
+export default {
     getClases,
     getClaseById,
     createClase,
