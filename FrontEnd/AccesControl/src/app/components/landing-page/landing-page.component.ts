@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { SigInComponent } from '../sig-in/sig-in.component';
 @Component({
   selector: 'app-landing-page',
-  imports: [],
+  imports: [SigInComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
