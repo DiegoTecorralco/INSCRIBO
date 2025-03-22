@@ -1,32 +1,28 @@
 .flex-\[0\.88\] {
     overflow: hidden; /* Evita el scroll en el contenedor principal */
   }
-  /* From Uiverse.io by elijahgummer */ 
-/* Animación para el botón "Regístrate" */
-@keyframes bounce-up {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+ /* Animación para ambos botones */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  /* Animación para el botón "Iniciar sesión" */
-  @keyframes bounce-down {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(10px);
-    }
+  25% {
+    transform: translateY(-10px); /* Sube */
   }
-  
-  /* Aplicar animaciones a los botones */
-  .animate-bounce-up {
-    animation: bounce-up 1.8s infinite;
+  50% {
+    transform: translateY(0); /* Vuelve al centro */
   }
-  
-  .animate-bounce-down {
-    animation: bounce-down 1.8s infinite;
+  75% {
+    transform: translateY(10px); /* Baja */
   }
+}
+
+/* Aplicar animaciones a los botones */
+.animate-bounce-up {
+  animation: wave 2s infinite;
+}
+
+.animate-bounce-down {
+  animation: wave 2s infinite;
+  animation-delay: 1s; /* Retraso para que estén desfasados */
+}
