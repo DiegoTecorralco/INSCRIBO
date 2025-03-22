@@ -26,7 +26,7 @@ const RfidScannerScreen = () => {
       </TouchableOpacity>
 
       {/* Indicador de carga mientras escanea */}
-      {isScanning && <ActivityIndicator size="large" color="#007BFF" style={styles.loader} />}
+      {isScanning && <ActivityIndicator size="large" color="#2563EB" style={styles.loader} />}
 
       {/* Mostrar el ID escaneado si existe */}
       {scannedId && !isScanning && (
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#2563EB',
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 8,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   scannedId: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#007BFF',
+    color: '#2563EB',
     marginTop: 10,
   },
 });

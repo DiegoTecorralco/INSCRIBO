@@ -17,8 +17,8 @@ const DashboardScreen = ({ navigation, route }) => {
 
   return (
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
-      {/* Mostrar imagen de perfil dependiendo si es admin o estudiante 
-      <Image 
+      {/* Mostrar imagen de perfil dependiendo si es admin o estudiante */}
+    { /*  <Image 
         source={isAdmin ? require('../../src/assets/admin.jpg') : require('../../assets/student.jpg')} 
         style={styles.profileImage}
       /> */ }
