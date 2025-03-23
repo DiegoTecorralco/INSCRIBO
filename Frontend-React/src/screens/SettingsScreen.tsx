@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-    marginBottom: 10,
-    fontSize: 14,
+    marginBottom:10,
+    fontSize:14,
   }
+})
+
+
+export default SettingsScreen;

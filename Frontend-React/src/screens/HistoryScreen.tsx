@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'; // Especifica el paquete de íconos
 
 const AccessHistoryScreen = () => {
   const accessLogs = [
-    { id: 1, name: 'Juan Pérez', time: '2025-03-18 08:00', photo: require('../../assets/user1.png') },
-    { id: 2, name: 'Ana García', time: '2025-03-18 08:30', photo: require('../../assets/user2.png') },
+    { id: 1, name: 'Juan Pérez', time: '2025-03-18 08:00' },
+    { id: 2, name: 'Ana García', time: '2025-03-18 08:30' },
   ];
 
   const fadeAnim = React.useRef(new Animated.Value(0)).current; // Animación de entrada
@@ -26,7 +26,7 @@ const AccessHistoryScreen = () => {
         {accessLogs.map((log) => (
           <TouchableOpacity key={log.id} style={styles.logItem}>
             <View style={styles.logContent}>
-             {/* <Image source={log.photo} style={styles.userPhoto */}  
+             
               <View style={styles.textContainer}>
                 <Text style={styles.name}>{log.name}</Text>
                 <Text style={styles.time}>{log.time}</Text>
@@ -84,4 +84,3 @@ const styles = StyleSheet.create({
 });
 
 export default AccessHistoryScreen;
-
