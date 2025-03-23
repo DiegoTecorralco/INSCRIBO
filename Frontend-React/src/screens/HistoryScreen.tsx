@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Especifica el paquete de íconos
+=======
+import React, { useEffect, useRef } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
+>>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
 
 const AccessHistoryScreen = () => {
   const accessLogs = [
@@ -8,10 +14,10 @@ const AccessHistoryScreen = () => {
     { id: 2, name: 'Ana García', time: '2025-03-18 08:30' },
   ];
 
-  const fadeAnim = React.useRef(new Animated.Value(0)).current; // Animación de entrada
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Animación de entrada
 
   // Animación de fade in al cargar la pantalla
-  React.useEffect(() => {
+  useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 500,
@@ -26,7 +32,12 @@ const AccessHistoryScreen = () => {
         {accessLogs.map((log) => (
           <TouchableOpacity key={log.id} style={styles.logItem}>
             <View style={styles.logContent}>
+<<<<<<< HEAD
              
+=======
+              {/* Aquí puedes agregar las fotos de los usuarios si las tienes */}
+              {/* <Image source={log.photo} style={styles.userPhoto} /> */}
+>>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
               <View style={styles.textContainer}>
                 <Text style={styles.name}>{log.name}</Text>
                 <Text style={styles.time}>{log.time}</Text>

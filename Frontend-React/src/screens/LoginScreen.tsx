@@ -108,13 +108,14 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     borderRadius: 8,
     width: '100%',
+    backgroundColor: '#fff',
   },
   error: {
-    color: 'red',
+    color: '#FF0000', // Rojo para los mensajes de error
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#2563EB', // Azul Principal
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 8,
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   registerText: {
-    color: '#007BFF',
+    color: '#2563EB', // Azul Principal
     fontSize: 14,
   },
 });

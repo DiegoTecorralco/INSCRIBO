@@ -41,11 +41,18 @@ const SettingsScreen = () => {
 
       {/* Indicador de carga */}
       {isLoading ? (
-        <ActivityIndicator size="large" color="#007BFF" style={styles.loader} />
+        <ActivityIndicator size="large" color="#2563EB" style={styles.loader} />
       ) : (
-        <TouchableOpacity style={styles.button} onPress={handleSaveSettings}>
-          <Text style={styles.buttonText}>Guardar Configuración</Text>
-        </TouchableOpacity>
+        <>
+          <TouchableOpacity style={styles.button} onPress={handleSaveSettings}>
+            <Text style={styles.buttonText}>Guardar Configuración</Text>
+          </TouchableOpacity>
+
+          {/* Botón para regresar al Dashboard */}
+          <TouchableOpacity style={styles.cancelButton} onPress={() => console.log('Regresando al Dashboard')}>
+            <Text style={styles.cancelButtonText}>Cancelar</Text>
+          </TouchableOpacity>
+        </>
       )}
     </View>
   );
@@ -62,19 +69,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
+    color: '#374151', // Gris oscuro
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#374151', // Gris oscuro
     borderWidth: 1,
     marginBottom: 10,
     paddingLeft: 10,
     borderRadius: 5,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff', // Blanco
   },
   error: {
     color: 'red',
+<<<<<<< HEAD
     marginBottom:10,
     fontSize:14,
   }
@@ -82,3 +90,35 @@ const styles = StyleSheet.create({
 
 
 export default SettingsScreen;
+=======
+    marginBottom: 10,
+    fontSize: 14,
+  },
+  button: {
+    backgroundColor: '#2563EB', // Azul Principal
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: '#fff', // Blanco
+    fontSize: 16,
+  },
+  cancelButton: {
+    backgroundColor: '#93C5FD', // Azul Claro
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  cancelButtonText: {
+    color: '#374151', // Gris oscuro
+    fontSize: 16,
+  },
+  loader: {
+    marginTop: 20,
+  },
+});
+
+export default SettingsScreen;
+>>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
