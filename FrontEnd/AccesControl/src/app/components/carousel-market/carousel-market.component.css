@@ -3,26 +3,62 @@
   }
   /* Estilos base del carrusel */
 .hs-carousel-body {
-    display: flex;
-    width: 100%;
-    transition: transform 0.7s ease;
-  }
-  
-  /* Estilos para las imágenes */
-  img {
-    max-width: 100%;
-    max-height: 20rem; /* 80 = 20rem */
-    object-fit: contain;
-  }
-  
-  /* Efecto hover para los controles */
-  .hs-carousel-prev:hover, 
-  .hs-carousel-next:hover {
-    background-color: rgba(243, 244, 246, 0.5); /* bg-gray-100 con opacidad */
-  }
-  
-  /* Transición suave para los indicadores */
-  button[type="button"] {
-    transition: background-color 0.3s ease;
-  }
-  
+  display: flex;
+  width: 100%;
+  transition: transform 0.7s ease-in-out;
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden;
+}
+
+/* Estilos para las imágenes */
+img {
+  max-width: 100%;
+  max-height: 20rem; /* 80 = 20rem */
+  object-fit: cover; /* Ocupa completamente el espacio sin distorsionar */
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover en imágenes */
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Controles del carrusel */
+.hs-carousel-prev, 
+.hs-carousel-next {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto hover para los controles */
+.hs-carousel-prev:hover, 
+.hs-carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Indicadores del carrusel */
+button[type="button"] {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Indicador activo */
+button[type="button"].bg-blue-700 {
+  background-color: #3b82f6; /* Azul más vibrante */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transform: scale(1.2);
+}
+
+/* Transición suave para los indicadores */
+button[type="button"]:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
