@@ -1,0 +1,28 @@
+.flex-\[0\.88\] {
+    overflow: hidden; /* Evita el scroll en el contenedor principal */
+  }
+  /* Estilos base del carrusel */
+.hs-carousel-body {
+    display: flex;
+    width: 100%;
+    transition: transform 0.7s ease;
+  }
+  
+  /* Estilos para las imágenes */
+  img {
+    max-width: 100%;
+    max-height: 20rem; /* 80 = 20rem */
+    object-fit: contain;
+  }
+  
+  /* Efecto hover para los controles */
+  .hs-carousel-prev:hover, 
+  .hs-carousel-next:hover {
+    background-color: rgba(243, 244, 246, 0.5); /* bg-gray-100 con opacidad */
+  }
+  
+  /* Transición suave para los indicadores */
+  button[type="button"] {
+    transition: background-color 0.3s ease;
+  }
+  
