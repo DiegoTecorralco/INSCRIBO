@@ -38,54 +38,53 @@ const lecturaController = {};
 
 lecturaController.insert = async (req, res) => {
     const { uid, idClase, idProgramado } = req.body;
+    console.log("📌 Datos recibidos en el request:", req.body);
 
     try {
         const tarjeta = await tarjetaDAO.getOne(uid);
-
         if (!tarjeta) {
+            console.log("🚨 Tarjeta no encontrada:", uid);
             return res.status(404).json({ message: "Tarjeta no encontrada" });
         }
+        console.log("✅ Tarjeta encontrada:", tarjeta);
 
         const clase = await claseDAO.obtenerClasePorId(idClase);
         if (!clase) {
+            console.log("🚨 Clase no encontrada:", idClase);
             return res.status(404).json({ message: "Clase no encontrada" });
         }
+        console.log("✅ Clase encontrada:", clase);
 
-        // Obtener la hora actual y la hora de la clase
-        const horaActual = moment().tz("America/Mexico_City").format("HH:mm");
-        const horaClase = clase.horario; // "HH:mm"
+        // Obtener la hora actual en México
+        const horaActual = moment().tz("America/Mexico_City").format("HH:mm:ss");
+        console.log("⏰ Hora actual en México:", horaActual);
 
-        // Convertir a objetos de tiempo para comparar
-        const horaActualObj = moment(horaActual, "HH:mm");
-        const horaClaseObj = moment(horaClase, "HH:mm");
-
-        // Calcular la diferencia en minutos
-        const diferenciaMinutos = horaActualObj.diff(horaClaseObj, 'minutes');
-
-        let tipoAsistencia = "asistencia"; // Valor por defecto
-
-        if (diferenciaMinutos > 5) {
-            tipoAsistencia = "retardo"; // Si es más de 5 min tarde, se marca como "retardo"
-        }
-
-        // Registrar la lectura y la asistencia
+        // Registrar la lectura
         const nuevaLectura = await lecturaDAO.insert({
             tarjeta: tarjeta._id,
             idClase,
-            idProgramado
+            idProgramado,
+            createdAt: moment().tz("America/Mexico_City").toDate()
         });
 
-        // Agregar asistencia en la clase con el tipo adecuado
+        console.log("✅ Lectura guardada exitosamente:", nuevaLectura);
+
+        // Registrar asistencia en la clase
         clase.asistencias.push({
             tarjeta: tarjeta._id,
             fecha: new Date(),
-            tipo: tipoAsistencia
+            tipo: "asistencia"
         });
 
         await clase.save();
 
-        res.status(201).json({ message: `Registro exitoso: ${tipoAsistencia}`, clase });
+        res.status(201).json({ 
+            message: "Registro exitoso", 
+            clase,
+            horaActual  // Devolver la hora actual en la respuesta
+        });
     } catch (error) {
+        console.error("🚨 Error al registrar asistencia:", error);
         res.status(500).json({ message: "Error al registrar asistencia", error });
     }
 };

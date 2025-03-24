@@ -1,10 +1,20 @@
 import { Router } from 'express';
-import registerAccess from '../controller/ControlController.js'; 
+import lecturaController from '../controller/lectura.controller.js';
+import lecturaDAO from '../dao/lectura.dao.js';
 
+const lecturaRouter = Router();
 
-const accessRouter = Router();
+// Ruta para registrar una lectura (desde el Arduino)
+lecturaRouter.post('/lecturas', lecturaController.insert);
 
-// Ruta para registrar accesos (Entrada/Salida)
-accessRouter.post('/acceso', registerAccess);
+// Ruta para obtener todas las lecturas
+lecturaRouter.get('/lecturas', async (req, res) => {
+    try {
+        const lecturas = await lecturaDAO.getAll();
+        res.json(lecturas);
+    } catch (error) {
+        res.status(500).json({ message: "Error al obtener lecturas", error });
+    }
+});
 
-export default accessRouter;
+export default lecturaRouter;
