@@ -12,9 +12,9 @@ export class CarouselMarketComponent implements AfterViewInit, OnDestroy {
   intervalId: any;
 
   slides = [
-    { image: '/Assets/logoCompany.png', alt: 'Logo company', bgClass: 'bg-gray-100' },
-    { image: '/Assets/garritaUTXJ.png', alt: 'Garrita', bgClass: 'bg-gray-200' },
-    { image: '/Assets/tigrilloUTXJ.png', alt: 'Tigre', bgClass: 'bg-gray-300' }
+    { image: 'assets/logoCompany.png', alt: 'Logo company', bgClass: 'bg-gray-100' },
+    { image: 'assets/garritaUTXJ.png', alt: 'Garrita', bgClass: 'bg-gray-100' },
+    { image: 'assets/tigrilloUTXJ.png', alt: 'Tigre', bgClass: 'bg-gray-100' }
   ];
 
   constructor(private ngZone: NgZone) {}
