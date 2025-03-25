@@ -1,7 +1,7 @@
 
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Especifica el paquete de íconos
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const AccessHistoryScreen = () => {
