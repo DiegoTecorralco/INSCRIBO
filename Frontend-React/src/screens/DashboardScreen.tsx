@@ -18,10 +18,10 @@ const DashboardScreen = ({ navigation, route }) => {
   return (
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
       {/* Mostrar imagen de perfil dependiendo si es admin o estudiante */}
-    { /*  <Image 
-        source={isAdmin ? require('../../src/assets/admin.jpg') : require('../../assets/student.jpg')} 
+    <Image 
+        source={isAdmin ? require('../assets/admin.jpg') : require('../assets/student.jpg')} 
         style={styles.profileImage}
-      /> */ }
+      />
 
       {/* Saludo personalizado */}
       <Text style={styles.greeting}>
@@ -50,8 +50,18 @@ const DashboardScreen = ({ navigation, route }) => {
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Settings')}>
           <Icon name="ios-settings" size={20} color="#fff" />
-          <Text style={styles.buttonText}>Configuraciones</Text>
+          <Text style={styles.buttonText}>Configuarcion</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity 
+  style={styles.button} 
+  onPress={() => navigation.navigate('AttendanceTable')} // Asegúrate de que el nombre coincida
+>
+  <Icon name="ios-list" size={20} color="#fff" />
+  <Text style={styles.buttonText}>Ver Pase de Lista</Text>
+</TouchableOpacity>
+
+
       </View>
 
       {/* Botón para cerrar sesión */}

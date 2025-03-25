@@ -1,12 +1,8 @@
-<<<<<<< HEAD
+
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Especifica el paquete de íconos
-=======
-import React, { useEffect, useRef } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
->>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
+
 
 const AccessHistoryScreen = () => {
   const accessLogs = [
@@ -32,12 +28,10 @@ const AccessHistoryScreen = () => {
         {accessLogs.map((log) => (
           <TouchableOpacity key={log.id} style={styles.logItem}>
             <View style={styles.logContent}>
-<<<<<<< HEAD
-             
-=======
+
               {/* Aquí puedes agregar las fotos de los usuarios si las tienes */}
               {/* <Image source={log.photo} style={styles.userPhoto} /> */}
->>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
+
               <View style={styles.textContainer}>
                 <Text style={styles.name}>{log.name}</Text>
                 <Text style={styles.time}>{log.time}</Text>

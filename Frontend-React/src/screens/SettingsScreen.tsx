@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-<<<<<<< HEAD
     marginBottom:10,
     fontSize:14,
   }
@@ -90,35 +89,4 @@ const styles = StyleSheet.create({
 
 
 export default SettingsScreen;
-=======
-    marginBottom: 10,
-    fontSize: 14,
-  },
-  button: {
-    backgroundColor: '#2563EB', // Azul Principal
-    padding: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: '#fff', // Blanco
-    fontSize: 16,
-  },
-  cancelButton: {
-    backgroundColor: '#93C5FD', // Azul Claro
-    padding: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  cancelButtonText: {
-    color: '#374151', // Gris oscuro
-    fontSize: 16,
-  },
-  loader: {
-    marginTop: 20,
-  },
-});
 
-export default SettingsScreen;
->>>>>>> 30801a8454c7053764c4357cbbacf2720afd75ed
