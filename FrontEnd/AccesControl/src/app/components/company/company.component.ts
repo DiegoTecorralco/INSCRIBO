@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { DeveloppersComponent } from '../developpers/developpers.component';
 @Component({
   selector: 'app-company',
-  imports: [],
+  imports: [DeveloppersComponent],
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
