@@ -7,7 +7,6 @@ const SettingsScreen = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSaveSettings = () => {
-    // Validación básica para la nueva contraseña
     if (newPassword.length < 6) {
       setErrorMessage('La contraseña debe tener al menos 6 caracteres.');
       return;
@@ -15,20 +14,18 @@ const SettingsScreen = () => {
 
     setIsLoading(true);
 
-    // Simular un retraso en la actualización de la contraseña
     setTimeout(() => {
       console.log('Contraseña cambiada a:', newPassword);
       setIsLoading(false);
       alert('Configuración guardada');
-      setNewPassword(''); // Limpiar el campo de la contraseña
-    }, 2000); // Simula un retraso de 2 segundos en el proceso
+      setNewPassword('');
+    }, 2000);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Configuraciones</Text>
 
-      {/* Mensaje de error si la validación falla */}
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
       <TextInput
@@ -39,7 +36,6 @@ const SettingsScreen = () => {
         onChangeText={setNewPassword}
       />
 
-      {/* Indicador de carga */}
       {isLoading ? (
         <ActivityIndicator size="large" color="#2563EB" style={styles.loader} />
       ) : (
@@ -48,7 +44,6 @@ const SettingsScreen = () => {
             <Text style={styles.buttonText}>Guardar Configuración</Text>
           </TouchableOpacity>
 
-          {/* Botón para regresar al Dashboard */}
           <TouchableOpacity style={styles.cancelButton} onPress={() => console.log('Regresando al Dashboard')}>
             <Text style={styles.cancelButtonText}>Cancelar</Text>
           </TouchableOpacity>
@@ -82,11 +77,34 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-    marginBottom:10,
-    fontSize:14,
-  }
-})
-
+    marginBottom: 10,
+    fontSize: 14,
+  },
+  button: {
+    backgroundColor: '#2563EB', // Azul Principal
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginBottom: 15,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  cancelButton: {
+    backgroundColor: '#FF4D4D', // Rojo para cancelar
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  cancelButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
 
 export default SettingsScreen;
+
 

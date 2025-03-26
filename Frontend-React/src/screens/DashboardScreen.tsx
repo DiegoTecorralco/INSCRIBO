@@ -30,6 +30,14 @@ const DashboardScreen = ({ navigation, route }) => {
 
       {/* Menú de opciones */}
       <View style={styles.menu}>
+      <TouchableOpacity 
+    style={styles.button} 
+    onPress={() => navigation.navigate('AdminProfile')} // Navegación al perfil del admin
+  >
+    <Icon name="ios-person" size={20} color="#fff" />
+    <Text style={styles.buttonText}>Mi Perfil</Text>
+  </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Scan')}>
           <Icon name="ios-qr-code" size={20} color="#fff" />
           <Text style={styles.buttonText}>Escanear RFID</Text>
@@ -39,12 +47,9 @@ const DashboardScreen = ({ navigation, route }) => {
           <>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('History')}>
               <Icon name="ios-time" size={20} color="#fff" />
-              <Text style={styles.buttonText}>Ver Historial</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('StudentRecords')}>
-              <Icon name="ios-people" size={20} color="#fff" />
               <Text style={styles.buttonText}>Ver Registros de Estudiantes</Text>
             </TouchableOpacity>
+           
           </>
         )}
 
@@ -75,6 +80,9 @@ const DashboardScreen = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
+  body: {
+    backgroundColor: '#93C5FD'
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

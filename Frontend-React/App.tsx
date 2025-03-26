@@ -8,6 +8,7 @@ import ScanScreen from './src/screens/ScanScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import AttendanceTableScreen from './src/screens/AttendanceTableScreen';
+import AdminProfile from './src/screens/AdminProfile'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen name="History" component={HistoryScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="AttendanceTable" component={AttendanceTableScreen} />
+        <Stack.Screen name="AdminProfile" component={AdminProfile} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
