@@ -11,6 +11,7 @@ import clasesRouter from './routes/clases.routes.js';
 import routerGrupo from "./routes/grupos.routes.js";
 import asistenciaRouter from './routes/routes.asistencia.js';
 import sesionsRouter from './routes/sesions.routes.js';
+import teachersRoutes from './routes/teacher.routes.js'
 // Configuración de la aplicación
 const app = express();
 
@@ -44,7 +45,8 @@ app.use('/api/',tarjetaRouter); // Prefijo /api/leer el control
 app.use('/api/clases/',clasesRouter);
 app.use('/api/alum/',routerGrupo);
 app.use('/api/', asistenciaRouter);
-app.use('api/login',sesionsRouter)
+app.use('/api/login',sesionsRouter)
+app.use('/api/teachers', teachersRoutes)
 // Configuración del puerto
 app.set('port', process.env.PORT || 6000);
 

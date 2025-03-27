@@ -1,13 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import moment from 'moment-timezone';
 
-const SesionsSchema = new mongoose.Schema({
-  matricula: { type: String, required: true },
-  nombre: { type: String, required: true }
-});   
-
-const GrupoSchema = new mongoose.Schema({
-  nombre: { type: String, required: true },
-  estudiantes: { type: [SesionsSchema], default: [] }
+const sessionSchema = new mongoose.Schema({
+    sessionID: { type: String, required: true, unique: true },
+    createdAt: { 
+        type: Date, 
+        default: () => moment().tz("America/Mexico_City").toDate() 
+    },
+    lastAccessed: { 
+        type: Date, 
+        default: () => moment().tz("America/Mexico_City").toDate() 
+    },
+    status: { 
+        type: String, 
+        enum: ["Activa", "Inactiva", "Finalizada por el Usuario", "Finalizada por Falla de Sistema"], 
+        default: "Activa" 
+    }
 });
 
-export default mongoose.model("Grupo", GrupoSchema);
+export default mongoose.model('Session', sessionSchema);
