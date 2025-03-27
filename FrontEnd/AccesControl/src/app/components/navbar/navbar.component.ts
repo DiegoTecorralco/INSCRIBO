@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,15 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
+  @Output() logout = new EventEmitter<void>()
   showMobileMenu = false;
   showProductMenu = false;
+  isSubmenuVisible = false;
 
+  toggleSubmenu(event: Event) {
+    event.stopPropagation();
+    this.isSubmenuVisible = !this.isSubmenuVisible;
+  }
   toggleMobileMenu() {
     this.showMobileMenu = !this.showMobileMenu;
     if (!this.showMobileMenu) {
@@ -31,5 +37,8 @@ export class NavbarComponent {
         this.showMobileMenu) {
       this.toggleMobileMenu();
     }
+  }
+  onLogout() {
+    this.logout.emit(); // Emitir el evento para que el AppComponent lo capture
   }
 }
