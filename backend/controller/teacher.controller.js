@@ -2,7 +2,7 @@ import { encryptData, decryptData } from '../utils/crypto.util.js';
 import {
     allTeacher,
     oneTeacher,
-    createTeacher as createTeacherDAO // Renombramos para claridad
+    createTeacher as createTeacherDAO 
 } from '../dao/teachers.dao.js';
 
 export const createTeachers = async (req, res) => {
