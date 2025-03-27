@@ -1,6 +1,11 @@
-<!-- app.component.html -->
-@if(isloggedIn==false){
+@if (isloggedIn) {
+    <app-navbar></app-navbar>
+  } @else {
     <app-header></app-header>
+  }
+  
+  <main class="main-content">
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
-} 
+  </main>
+  
+  <app-footer></app-footer>
