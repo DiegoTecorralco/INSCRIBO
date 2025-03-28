@@ -1,5 +1,5 @@
 # INSCRIBO
-Este proyecto va a tratar de Autumatizar el Registro de inscripciones de un Centro Escolar Medio Superior, con la finalidad de automatizar el proceso de inscripciones.
+Este proyecto va a tratar de Autumatizar el Registro de Asistencia en el Nivel Superior  con la finalidad de automatizar y agilizar el Registro de Asistencia 
 ### Paleta de colores 
 
 
