@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,17 @@ export class AuthService {
   private currentTeacherSubject = new BehaviorSubject<any>(null);
   public currentTeacher = this.currentTeacherSubject.asObservable();
 
-  constructor(private http: HttpClient) {
-    // Verificar sesión al inicializar
-    const sessionID = localStorage.getItem('sessionID');
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initializeAuth();
+    }
+  }
+
+  private initializeAuth() {
+    const sessionID = this.getFromStorage('sessionID');
     if (sessionID) {
       this.checkSession(sessionID).subscribe({
         next: (response: any) => {
@@ -23,26 +32,46 @@ export class AuthService {
         error: () => this.clearSession()
       });
     }
-  
-    // Verificar cada 5 minutos
-    setInterval(() => {
-      if (this.isLoggedIn) {
-        const sessionID = localStorage.getItem('sessionID');
-        if (sessionID) {
-          this.checkSession(sessionID).subscribe({
-            error: () => this.clearSession()
-          });
+
+    if (isPlatformBrowser(this.platformId)) {
+      setInterval(() => {
+        if (this.isLoggedIn) {
+          const sessionID = this.getFromStorage('sessionID');
+          if (sessionID) {
+            this.checkSession(sessionID).subscribe({
+              error: () => this.clearSession()
+            });
+          }
         }
-      }
-    }, 5 * 60 * 1000);
+      }, 5 * 60 * 1000);
+    }
   }
-  
+
+  private getFromStorage(key: string): string | null {
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(key);
+    }
+    return null;
+  }
+
+  private setToStorage(key: string, value: string): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(key, value);
+    }
+  }
+
+  private removeFromStorage(key: string): void {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(key);
+    }
+  }
+
   login(matricula: string, password: string) {
     return this.http.post(`${this.apiUrl}/login`, { matricula, password });
   }
 
   logout() {
-    const sessionID = localStorage.getItem('sessionID');
+    const sessionID = this.getFromStorage('sessionID');
     if (sessionID) {
       this.http.post(`${this.apiUrl}/logout`, { sessionID }).subscribe({
         next: () => this.clearSession()
@@ -57,19 +86,19 @@ export class AuthService {
   }
 
   setSession(data: any) {
-    localStorage.setItem('sessionID', data.sessionID);
-    localStorage.setItem('teacher', JSON.stringify(data.teacher));
+    this.setToStorage('sessionID', data.sessionID);
+    this.setToStorage('teacher', JSON.stringify(data.teacher));
     this.currentTeacherSubject.next(data.teacher);
   }
 
   clearSession() {
-    localStorage.removeItem('sessionID');
-    localStorage.removeItem('teacher');
+    this.removeFromStorage('sessionID');
+    this.removeFromStorage('teacher');
     this.currentTeacherSubject.next(null);
   }
 
   get isLoggedIn(): boolean {
-    return !!localStorage.getItem('sessionID');
+    return !!this.getFromStorage('sessionID');
   }
 
   get currentTeacherValue() {
