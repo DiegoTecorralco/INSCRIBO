@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://192.168.1.73:6000/api/auth';
+  private apiUrl = 'http://10.10.60.2:3000/api/auth';
   private currentTeacherSubject = new BehaviorSubject<any>(null);
   public currentTeacher = this.currentTeacherSubject.asObservable();
 

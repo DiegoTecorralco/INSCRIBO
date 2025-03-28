@@ -13,8 +13,6 @@ import asistenciaRouter from './routes/routes.asistencia.js';
 import sesionsRouter from './routes/sesions.routes.js';
 import teachersRoutes from './routes/teacher.routes.js'
 import authRouter from './routes/auth.routes.js';
-import './cron/sessions.js';
-
 
 // Configuración de la aplicación
 const app = express();
@@ -54,6 +52,6 @@ app.use('/api/teachers', teachersRoutes)
 app.use('/api/auth', authRouter);
 
 // Configuración del puerto
-app.set('port', process.env.PORT || 6000);
+app.set('port', process.env.PORT || 3000);
 
 export default app;

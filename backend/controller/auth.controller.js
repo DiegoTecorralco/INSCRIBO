@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { encryptData, decryptData } from '../utils/crypto.util.js';
-import Teacher from '../models/Teachers.js';
-import Session from '../models/Sesions.js';
+import { oneTeacher } from '../dao/teachers.dao.js';
+import { createSession, findActiveSession, updateSession } from '../dao/sesions.dao.js';
 
 export const login = async (req, res) => {
     const { matricula, password } = req.body;
@@ -14,8 +14,8 @@ export const login = async (req, res) => {
     }
 
     try {
-        // 1. Buscar docente por matrícula
-        const teacher = await Teacher.findOne({ matricula });
+        // 1. Buscar docente por matrícula usando el DAO
+        const teacher = await oneTeacher(matricula);
         
         if (!teacher) {
             return res.status(404).json({
@@ -34,17 +34,15 @@ export const login = async (req, res) => {
             });
         }
 
-        // 3. Crear sesión
+        // 3. Crear sesión usando el DAO
         const sessionID = uuidv4();
-        const newSession = new Session({
+        await createSession({
             sessionID,
             teacher: teacher._id,
             matricula,
             ip: req.ip,
             userAgent: req.headers['user-agent']
         });
-
-        await newSession.save();
 
         // 4. Actualizar último acceso del docente
         teacher.lastAccessed = new Date();
@@ -75,10 +73,9 @@ export const logout = async (req, res) => {
     const { sessionID } = req.body;
 
     try {
-        const session = await Session.findOneAndUpdate(
+        const session = await updateSession(
             { sessionID, status: 'Activa' },
-            { status: 'Cerrada' },
-            { new: true }
+            { status: 'Cerrada' }
         );
 
         if (!session) {
@@ -106,11 +103,9 @@ export const checkSession = async (req, res) => {
     const { sessionID } = req.params;
 
     try {
-        const session = await Session.findOne({ sessionID })
-            .populate('teacher', 'name lastname matricula')
-            .exec();
+        const session = await findActiveSession(sessionID);
 
-        if (!session || session.status !== 'Activa') {
+        if (!session) {
             return res.status(401).json({
                 success: false,
                 error: 'Sesión inválida o expirada'
@@ -121,8 +116,7 @@ export const checkSession = async (req, res) => {
         const inactiveTime = (new Date() - session.lastAccessed) / (1000 * 60);
         
         if (inactiveTime > 20) {
-            session.status = 'Expirada';
-            await session.save();
+            await updateSession(sessionID, { status: 'Expirada' });
             return res.status(401).json({
                 success: false,
                 error: 'Sesión expirada por inactividad'
@@ -130,8 +124,7 @@ export const checkSession = async (req, res) => {
         }
 
         // Actualizar último acceso
-        session.lastAccessed = new Date();
-        await session.save();
+        await updateSession(sessionID, { lastAccessed: new Date() });
 
         res.status(200).json({
             success: true,

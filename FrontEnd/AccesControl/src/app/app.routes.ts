@@ -5,6 +5,7 @@ import { RegistrerComponent } from './components/registrer/registrer.component';
 import { CompanyComponent } from './components/company/company.component';
 import { MarketComponent } from './components/market/market.component';
 import { FunctionComponent } from './components/function/function.component';
+import { MobilComponent } from './components/mobil/mobil.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component'; // Ejemplo de componente privado
 import { AuthGuard } from './guards/auth.guard';
 import { PublicGuard } from './guards/public.guard';
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'company', component: CompanyComponent },
   { path: 'market', component: MarketComponent },
   { path: 'function', component: FunctionComponent },
+  { path: 'mobil', component: MobilComponent },
 
   // Rutas privadas (requieren autenticación)
   { 
