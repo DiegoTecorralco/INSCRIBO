@@ -3,6 +3,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import {HeaderComponent} from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
+
 @Component({
   selector: 'app-root',
   standalone: true, 
@@ -12,5 +14,5 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'AccesControl';
-  isloggedIn : boolean = true;  
+  constructor(public authService: AuthService) {}
 }
