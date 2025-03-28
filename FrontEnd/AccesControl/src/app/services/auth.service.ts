@@ -14,10 +14,29 @@ export class AuthService {
     // Verificar sesión al inicializar
     const sessionID = localStorage.getItem('sessionID');
     if (sessionID) {
-      this.checkSession(sessionID).subscribe();
+      this.checkSession(sessionID).subscribe({
+        next: (response: any) => {
+          if (!response.success) {
+            this.clearSession();
+          }
+        },
+        error: () => this.clearSession()
+      });
     }
+  
+    // Verificar cada 5 minutos
+    setInterval(() => {
+      if (this.isLoggedIn) {
+        const sessionID = localStorage.getItem('sessionID');
+        if (sessionID) {
+          this.checkSession(sessionID).subscribe({
+            error: () => this.clearSession()
+          });
+        }
+      }
+    }, 5 * 60 * 1000);
   }
-
+  
   login(matricula: string, password: string) {
     return this.http.post(`${this.apiUrl}/login`, { matricula, password });
   }
