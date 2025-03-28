@@ -39,7 +39,10 @@ app.use(express.urlencoded({ extended: true })); // Para leer formularios
 app.use(morgan('dev')); // Para loguear las peticiones
 
 // Configura CORS para permitir solicitudes de cualquier origen
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:4200', 'http://10.10.60.2:4200'],
+    credentials: true
+  }));
 
 // Rutas
 app.use('/api/aa/',lecturaRouter); // Prefijo /api/acceso para las rutas del Control

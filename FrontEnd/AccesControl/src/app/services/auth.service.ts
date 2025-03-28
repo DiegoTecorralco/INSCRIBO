@@ -1,12 +1,13 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, throwError } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  // Cambia esta URL al puerto correcto (6000)
   private apiUrl = 'http://10.10.60.2:3000/api/auth';
   private currentTeacherSubject = new BehaviorSubject<any>(null);
   public currentTeacher = this.currentTeacherSubject.asObservable();
@@ -25,7 +26,7 @@ export class AuthService {
     if (sessionID) {
       this.checkSession(sessionID).subscribe({
         next: (response: any) => {
-          if (!response.success) {
+          if (!response?.success) {
             this.clearSession();
           }
         },
@@ -43,10 +44,11 @@ export class AuthService {
             });
           }
         }
-      }, 5 * 60 * 1000);
+      }, 5 * 60 * 1000); // Verifica cada 5 minutos
     }
   }
 
+  // Métodos de almacenamiento (sin cambios)
   private getFromStorage(key: string): string | null {
     if (isPlatformBrowser(this.platformId)) {
       return localStorage.getItem(key);
@@ -66,15 +68,28 @@ export class AuthService {
     }
   }
 
+  // Método login mejorado
   login(matricula: string, password: string) {
-    return this.http.post(`${this.apiUrl}/login`, { matricula, password });
+    return this.http.post(`${this.apiUrl}/login`, { matricula, password }).pipe(
+      catchError(error => {
+        let errorMessage = 'Error de conexión';
+        if (error.status === 0) {
+          errorMessage = 'No se pudo conectar al servidor';
+        } else if (error.error?.error) {
+          errorMessage = error.error.error;
+        }
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
+  // Resto de métodos sin cambios
   logout() {
     const sessionID = this.getFromStorage('sessionID');
     if (sessionID) {
       this.http.post(`${this.apiUrl}/logout`, { sessionID }).subscribe({
-        next: () => this.clearSession()
+        next: () => this.clearSession(),
+        error: () => this.clearSession()
       });
     } else {
       this.clearSession();
@@ -82,7 +97,9 @@ export class AuthService {
   }
 
   checkSession(sessionID: string) {
-    return this.http.get(`${this.apiUrl}/session/${sessionID}`);
+    return this.http.get(`${this.apiUrl}/session/${sessionID}`).pipe(
+      catchError(() => throwError(() => new Error('Error al verificar sesión')))
+    );
   }
 
   setSession(data: any) {
