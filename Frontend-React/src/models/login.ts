@@ -1,4 +1,4 @@
-export interface {
+export interface teacher{
     student_id:number;
     name:String;
     lastname:String;
