@@ -14,10 +14,10 @@ Actualmente, muchas instituciones enfrentan dificultades en la gestión del acce
 El control de acceso en instituciones educativas es un aspecto fundamental para garantizar la seguridad y organización de alumnos, docentes y personal administrativo. En el área de Bachillerato, la implementación de un sistema de Control de Acceso basado en una API con arquitectura Modelo Vista Controlador (MVC) permitirá optimizar el registro de entradas y salidas, asegurando un mejor control y monitoreo en tiempo real.
 
 ## Objetivo general 
-Este proyecto busca desarrollar una solución tecnológica eficiente y escalable, que permita automatizar el proceso de acceso mediante credenciales digitales, tarjetas RFID y, en caso de olvido de la credencial, el uso de matrícula como alternativa. Además, el sistema podrá asignar una matrícula automáticamente a los alumnos que aún no la tengan generada, evitando problemas administrativos.
+Diseñar e implementar un Dispositivo IoT para el control de acceso a los laboratorios de la Universidad Tecnologica de Xicotepec de Juarez que registre la puntualidad de los estudiantes y brinde una señal mediante los Leds
 
 ## Objetivos especificos
-A través de una interfaz web moderna y adaptable, los usuarios podrán visualizar su historial de accesos, recibir notificaciones en caso de eventos irregulares y los administradores podrán generar reportes detallados sobre la actividad dentro del bachillerato.
+A través de una interfaz web moderna y adaptable, los usuarios podrán visualizar su historial de accesos, recibir notificaciones en caso de eventos irregulares y los administradores podrán generar reportes detallados sobre la actividad dentro del Laboratorio y evaluar el funcionamiento del sistema en condiciones que sean reales
 Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autenticación mediante JWT, este sistema garantizará una experiencia segura y eficiente tanto para alumnos como para docentes.
 
 ## **Lista de tecnologias**
@@ -44,5 +44,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |------------|--------|---|---|
 |Diego Salvador Tecorralco Martínez |[@DiegoTecorralco](https://github.com/DiegoTecorralco)|Lider de Documentación, Backend y Equipo|✅ Revisado y aprobado.|
 |Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|❌ Falta Revisión|
-|Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|✅ Revisado y aproba
+|Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos|✅ Revisado y aprobado|
 |Marcos Jesús Ríos Duran|[@Marcos-Jesus-Rios-Duran](https://github.com/Marcos-Jesus-Rios-Duran)|Frontend|❌ Falta Revisión|
+|Ailton Artiaga Quiroga|[@ArtQuir29](https://github.com/ArtQuir29)|Frontend|❌ Falta Revisión|
+
