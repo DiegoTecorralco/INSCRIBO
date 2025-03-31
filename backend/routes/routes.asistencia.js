@@ -41,4 +41,5 @@ asistenciaRouter.get("/pase-lista/grupo/:grupo", async (req, res) => {
   }
 });
 
+
 export default asistenciaRouter;
