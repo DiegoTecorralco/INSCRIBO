@@ -43,7 +43,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |Integrante|Contacto|Rol|Observaciones|
 |------------|--------|---|---|
 |Diego Salvador Tecorralco Martínez |[@DiegoTecorralco](https://github.com/DiegoTecorralco)|Lider de Documentación, Backend y Equipo|✅ Revisado y aprobado.|
-|Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend||✅ Revisado y aprobado|
+|Jose Agustín Jímenez Castillo|[@agustin963](https://github.com/agustin963)|Lider de Frontend|✅ Revisado y aprobado|
 |Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos y de documentacion|✅ Revisado y aprobado|
 |Marcos Jesús Ríos Duran|[@Marcos-Jesus-Rios-Duran](https://github.com/Marcos-Jesus-Rios-Duran)|Frontend|❌ Falta Revisión|
 |Ailton Artiaga Quiroga|[@ArtQuir29](https://github.com/ArtQuir29)|Frontend|❌ Falta Revisión|
