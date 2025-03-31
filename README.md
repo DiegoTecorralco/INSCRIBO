@@ -47,4 +47,6 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 |Carlos Isaac Fosado Escudero |[@CarlosFosadoo](https://github.com/CarlosFosadoo)|Líder de las base de datos y de documentacion|✅ Revisado y aprobado|
 |Marcos Jesús Ríos Duran|[@Marcos-Jesus-Rios-Duran](https://github.com/Marcos-Jesus-Rios-Duran)|Frontend|❌ Falta Revisión|
 |Ailton Artiaga Quiroga|[@ArtQuir29](https://github.com/ArtQuir29)|Frontend|❌ Falta Revisión|
+|Juvenal Viveros Martinez|[@Juvenal-Viveros](https://github.com/Juvenal-Viveros)|Base de datos|❌ Falta Revisión|
+
 
