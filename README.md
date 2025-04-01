@@ -1,11 +1,7 @@
 # INSCRIBO
 Este proyecto va a tratar de Autumatizar el Registro de Asistencia en el Nivel Superior  con la finalidad de automatizar y agilizar el Registro de Asistencia 
 ### Paleta de colores 
-
-
-![Captura de pantalla 2025-02-17 153439](https://github.com/user-attachments/assets/69949b2c-18b5-46fd-a726-61aa8bb20f1a)
-
-
+![WhatsApp Image 2025-03-21 at 12 14 57 AM](https://github.com/user-attachments/assets/74b4e7ba-6c3d-4937-9a60-52c45f6180b1)
 
 ## Problematica 
 Actualmente, muchas instituciones enfrentan dificultades en la gestión del acceso de estudiantes y docentes, ya que dependen de métodos manuales que pueden ser poco eficientes y propensos a errores. Esto puede generar inconvenientes en el registro de asistencia, la supervisión del personal y la seguridad dentro del plantel.
@@ -30,8 +26,11 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 3. #### **Framework para Desarrollo FrontEnd:**
    ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) Biblioteca de JavaScript para construir interfaces de usuario interactivas y reutilizables. Basada en componentes y con un enfoque declarativo que mejora el rendimiento.
 
-### Logo
-![Logo Inscribo ](LOGO_In.jpeg)
+### Logo de la empresa
+![logo_empresa_resized](https://github.com/user-attachments/assets/42431514-7d99-4c8b-bb8d-ccc1d1340c84)
+
+### Logo del producto
+![logo_producto_resized](https://github.com/user-attachments/assets/522ebb16-e3df-4170-97a5-813a32dd43b4)
 
 ### Organigrama del Proyecto
 ![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
