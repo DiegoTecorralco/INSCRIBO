@@ -35,7 +35,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 ### Organigrama del Proyecto
 ![Organigrama de Inscribo ](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/image.png)
 ## **Diagrama de gant**
-![diagrama de gant de Inscribo](https://github.com/DiegoTecorralco/INSCRIBO/blob/main/Assets/imagenn.png)
+![Actividad](https://github.com/user-attachments/assets/7e13d11d-18d0-4e8f-94d7-10d3ac167677)
 
 ## Equipo de Desarrollo
 
