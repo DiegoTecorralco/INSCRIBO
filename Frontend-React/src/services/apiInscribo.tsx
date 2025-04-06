@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Asistencia } from '../models/asistencia'
-const URL_API_ASISTENCIA = "http://192.168.156.95:6000/api/asistencia/"
+const URL_API_ASISTENCIA = "http://192.168.137.91:6000/api/asistencia/"
 
 
     export const getAsistencia = async () => {
