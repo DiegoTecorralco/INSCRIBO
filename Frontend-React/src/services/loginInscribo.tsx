@@ -1,7 +1,7 @@
 import axios  from "axios";
 import { teacher } from "../models/login";
 
-const URL_API_LOGIN = "http://192.168.4.95:6000/api/auth/login";
+const URL_API_LOGIN = "http://192.168.243.95:6000/api/auth/login";
 
 /**
  * Función para iniciar sesión.
