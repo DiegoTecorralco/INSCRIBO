@@ -1,18 +1,19 @@
-// src/app/components/dashboard/dashboard.component.ts
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit  {
+export class DashboardComponent implements OnInit {
   teacherData: any;
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
     this.authService.currentTeacher.subscribe(teacher => {
@@ -20,11 +21,10 @@ export class DashboardComponent implements OnInit  {
       
       if (!teacher) {
         const storedTeacher = this.authService.getFromStorage('teacher');
-        if (storedTeacher) {
-          this.teacherData = JSON.parse(storedTeacher);
-        } else {
+        this.teacherData = storedTeacher ? JSON.parse(storedTeacher) : null;
+        
+        if (!this.teacherData) {
           this.authService.clearSession();
-          // Redirigir a login si es necesario
         }
       }
     });

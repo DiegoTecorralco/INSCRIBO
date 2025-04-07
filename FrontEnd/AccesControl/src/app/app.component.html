@@ -1,12 +1,11 @@
-@if (authService.isLoggedIn===true) {
-    <app-navbar></app-navbar>
-  } 
-  @if (authService.isLoggedIn===false) {
-    <app-header></app-header>
-  } 
-  
-  <main class="main-content">
-    <router-outlet></router-outlet>
-  </main>
-  
-  <app-footer></app-footer>
+@if (authService.currentTeacherValue) {
+  <app-navbar></app-navbar>
+} @else {
+  <app-header></app-header>
+}
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
