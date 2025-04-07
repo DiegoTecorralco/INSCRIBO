@@ -1,6 +1,4 @@
-import  Asistencia  from "../models/asitencia.models.js";
-
-
+import Asistencia from "../models/asitencia.models.js";
 
 const asistenciaDAO = {
   registrarAsistencia: async (asistencia) => {
@@ -13,6 +11,11 @@ const asistenciaDAO = {
 
   obtenerAsistenciasPorGrupo: async (grupo) => {
     return await Asistencia.find({ grupo }).sort({ fecha: -1 });
+  },
+
+  // Nuevo método: obtener todas las asistencias
+  obtenerTodasAsistencias: async () => {
+    return await Asistencia.find().sort({ fecha: -1 });
   }
 };
 

@@ -7,5 +7,7 @@ routerGrupo.post('/grupos', GrupoController.crearGrupo);
 routerGrupo.get('/grupos/:nombre', GrupoController.obtenerGrupoPorNombre);
 routerGrupo.put('/grupos/:nombre', GrupoController.actualizarGrupo);
 routerGrupo.delete('/grupos/:nombre', GrupoController.eliminarGrupo);
+routerGrupo.get("/estudiante/:matricula", GrupoController.buscarEstudiantePorMatricula);
+
 
 export default routerGrupo;

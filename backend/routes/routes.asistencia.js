@@ -41,5 +41,17 @@ asistenciaRouter.get("/pase-lista/grupo/:grupo", async (req, res) => {
   }
 });
 
+// Nueva ruta para obtener todas las asistencias
+asistenciaRouter.get("/getAll", async (req, res) => {
+  try {
+    const asistencias = await asistenciaController.mostrarTodasAsistencias(); // 🔹 No pasamos `req, res`
+    
+    res.status(200).json({ data: asistencias }); // 🔹 La ruta maneja la respuesta
+  } catch (error) {
+    console.error("❌ Error en la ruta:", error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 export default asistenciaRouter;

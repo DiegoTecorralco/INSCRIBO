@@ -53,7 +53,28 @@ const GrupoController = {
     } catch (error) {
       res.status(500).json({ message: 'Error al eliminar el grupo', error });
     }
-  }
+  },
+
+  async buscarEstudiantePorMatricula(req, res) {
+    try {
+        const { matricula } = req.params;
+        console.log("📌 Buscando estudiante con matrícula:", matricula);
+
+        const estudiante = await GrupoDAO.buscarEstudiantePorMatricula(matricula);
+
+        if (!estudiante) {
+            console.log("❌ Estudiante no encontrado.");
+            return res.status(404).json({ message: "Estudiante no encontrado en ningún grupo" });
+        }
+
+        console.log("✅ Estudiante encontrado:", estudiante);
+        res.json(estudiante);
+    } catch (error) {
+        console.error("❌ Error al buscar estudiante:", error);
+        res.status(500).json({ message: "Error interno al buscar estudiante", error });
+    }
+}
+
 };
 
 export default GrupoController;

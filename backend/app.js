@@ -13,6 +13,8 @@ import asistenciaRouter from './routes/routes.asistencia.js';
 import sesionsRouter from './routes/sesions.routes.js';
 import teachersRoutes from './routes/teacher.routes.js'
 import authRouter from './routes/auth.routes.js';
+import './cron/sessions.js';
+
 
 // Configuración de la aplicación
 const app = express();
@@ -39,22 +41,19 @@ app.use(express.urlencoded({ extended: true })); // Para leer formularios
 app.use(morgan('dev')); // Para loguear las peticiones
 
 // Configura CORS para permitir solicitudes de cualquier origen
-app.use(cors({
-    origin: ['http://localhost:4200', 'http://10.10.60.2:4200'],
-    credentials: true
-  }));
+app.use(cors());
 
 // Rutas
 app.use('/api/aa/',lecturaRouter); // Prefijo /api/acceso para las rutas del Control
 app.use('/api/',tarjetaRouter); // Prefijo /api/leer el control 
 app.use('/api/clases/',clasesRouter);
 app.use('/api/alum/',routerGrupo);
-app.use('/api/', asistenciaRouter);
+app.use('/api/asistencia/', asistenciaRouter);
 app.use('/api/login',sesionsRouter)
 app.use('/api/teachers', teachersRoutes)
 app.use('/api/auth', authRouter);
 
 // Configuración del puerto
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 6000);
 
 export default app;

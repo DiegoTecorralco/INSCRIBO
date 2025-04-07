@@ -87,6 +87,21 @@ asistenciaController.registrarAsistencia = async (req, res) => {
      estadoLED: result.estadoLED || "verde"  // Si no se recibe un estadoLED, se asigna "verde"
    });
 };
+// Nuevo método: Mostrar todas las asistencias
+asistenciaController.mostrarTodasAsistencias = async () => {
+  try {
+      console.log("📥 Solicitando todas las asistencias...");
+      const asistencias = await asistenciaDAO.obtenerTodasAsistencias();
+      console.log("✅ Asistencias obtenidas:", asistencias);
+      
+      return asistencias;  // 🔹 Solo retornamos los datos
+  } catch (error) {
+      console.error("❌ Error obteniendo asistencias:", error);
+      throw new Error("Error interno del servidor");  // 🔹 Lanzamos un error en lugar de enviar la respuesta
+  }
+};
+
+
 
 export default asistenciaController;
 
