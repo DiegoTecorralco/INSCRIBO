@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
-
+import { login } from '../services/loginInscribo';
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
     }).start();
   }, [fadeAnim]);
 
-  const handleLogin = () => {
+  const handleLogin = async() => {
     // Validación básica
     if (!username || !password) {
       setErrorMessage('Por favor, ingresa usuario y contraseña.');
@@ -25,13 +25,18 @@ const LoginScreen = ({ navigation }) => {
     }
 
     // Lógica de autenticación (simulada)
-    if (username === 'admin' && password === 'admin123') {
-      navigation.navigate('Dashboard', { isAdmin: true });
-    } else if (username === 'student' && password === '123456') {
-      navigation.navigate('Dashboard', { isAdmin: false });
-    } else {
-      setErrorMessage('Usuario o contraseña incorrectos');
+    try {
+      // Llamar a la API de inicio de sesión
+      const response = await login({ matricula: username, password });
+      console.log('Inicio de sesión exitoso:', response);
+
+      // Redirigir al usuario según la respuesta
+      navigation.navigate('Dashboard', { teacher: response.teacher });
+    } catch (error: any) {
+      console.error('Error al iniciar sesión:', error.message);
+      setErrorMessage(error.message); // Mostrar mensaje de error
     }
+  
   };
 
   return (

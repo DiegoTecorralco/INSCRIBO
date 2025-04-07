@@ -1,8 +1,6 @@
 export interface teacher{
-    student_id:number;
     name:String;
     lastname:String;
-    grade:Number;
-    group:String;
-    average:Number;
+    matricula:String;
+    password: String;
 }
