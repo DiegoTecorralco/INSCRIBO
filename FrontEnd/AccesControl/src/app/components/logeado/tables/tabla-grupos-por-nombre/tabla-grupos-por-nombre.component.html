@@ -1,1 +1,39 @@
-<p>tabla-grupos-por-nombre works!</p>
+<div class="table-container">
+    <h2 class="table-title">Registro de Asistencias</h2>
+    <div class="table-responsive">
+      <table id="attendanceTable" class="table table-hover table-striped nowrap" style="width:100%">
+        <thead class="thead-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Asistencias</th>
+            <th>Faltas</th>
+            <th>Retardos</th>
+            <th>Total</th>
+            <th>% Asistencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of getGroupedData()">
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.asistencias }}</td>
+            <td>{{ item.faltas }}</td>
+            <td>{{ item.retardos }}</td>
+            <td>{{ item.total }}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" 
+                     [ngClass]="{
+                       'bg-success': item.porcentaje >= 90,
+                       'bg-warning': item.porcentaje >= 70 && item.porcentaje < 90,
+                       'bg-danger': item.porcentaje < 70
+                     }" 
+                     [style.width.%]="item.porcentaje">
+                  {{ item.porcentaje | number:'1.0-0' }}%
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
