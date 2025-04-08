@@ -1,44 +1,52 @@
 import express from 'express';
+import http from 'http';
 import morgan from 'morgan';
 import cors from 'cors';
-import http from 'http';
-import {Server} from "socket.io"
+import { Server } from 'socket.io';
 
-// Configuración de la aplicación
+import { initSocket } from './socket.js';
+import teachersRoutes from './routes/teachers.routes.js';
+import authRouter from './routes/auth.routes.js';
+import attendanceRoutes from './routes/attendance.routes.js'; 
+
 const app = express();
-
-
-//Servidor HTTP
 const server = http.createServer(app);
-
 const io = new Server(server, {
-    cors: { origin: "*" }
-});
-
-io.on("connection", (socket) => {
-    console.log(" Cliente conectado a WebSockets");
-    
-    socket.on("disconnect", () => {
-        console.log("Cliente desconectado");
-    });
-});
-
-// Middlewares
-app.use(express.json()); // Para que entienda json
-app.use(express.urlencoded({ extended: true })); // Para leer formularios
-app.use(morgan('dev')); // Para loguear las peticiones
-
-// Configura CORS para permitir solicitudes de cualquier origen
-app.use(cors({
+  cors: {
     origin: ['http://localhost:4200', 'http://10.10.60.2:4200'],
     credentials: true
-  }));
+  }
+});
 
-// Rutas
-app.use('/api/teachers', teachersRoutes)
+// Inicializa el socket global
+initSocket(io);
+
+// Middleware Express
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(cors({
+  origin: ['http://localhost:4200', 'http://10.10.60.2:4200'],
+  credentials: true
+}));
+
+// Rutas de la API
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/teachers', teachersRoutes);
 app.use('/api/auth', authRouter);
+app.use('/api/attendance', attendanceRoutes); // Agrega tus rutas adicionales aquí
 
-// Configuración del puerto
-app.set('port', process.env.PORT || 3000);
+// WebSocket Events
+io.on('connection', (socket) => {
+  console.log('Cliente conectado a WebSockets');
 
-export default app;
+  socket.on('disconnect', () => {
+    console.log('Cliente desconectado');
+  });
+});
+
+// Iniciar el servidor
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
