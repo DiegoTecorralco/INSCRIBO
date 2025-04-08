@@ -33,7 +33,7 @@ Con la integración de tecnologías como Node.js, React.js, MongoDB/SQL y autent
 ![logo_producto_resized](https://github.com/user-attachments/assets/522ebb16-e3df-4170-97a5-813a32dd43b4)
 
 ### Organigrama del Proyecto
-![Organigrama](https://github.com/user-attachments/assets/fbdd58e3-a409-4fdb-bac9-3d19ccb9f210)
+![Juvenal Viveros](https://github.com/user-attachments/assets/53200608-7399-43c2-94ce-2c7ff26acb4f)
 
 ## **Diagrama de gant**
 ![Actividad](https://github.com/user-attachments/assets/7e13d11d-18d0-4e8f-94d7-10d3ac167677)
