@@ -59,6 +59,13 @@ const DashboardScreen = ({ navigation, route }) => {
               <Text style={styles.buttonText}>Ver Registros de Estudiantes</Text>
             </TouchableOpacity>
           )}
+          
+          {isAdmin && (
+  <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddStudent')}>
+    <Icon name="ios-person-add" size={20} color="#fff" />
+    <Text style={styles.buttonText}>Agregar Estudiante</Text>
+  </TouchableOpacity>
+)}
 
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Settings')}>
             <Icon name="ios-settings" size={20} color="#fff" />
