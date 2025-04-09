@@ -11,6 +11,7 @@ import attendanceRoutes from './routes/attendance.routes.js';
 import { defaultMaxListeners } from 'events';
 import studentRouter from './routes/student.routes.js';
 import subjectRouter from './routes/subjec.routes.js';
+import classesrouter from './routes/class.routes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -40,6 +41,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/attendance', attendanceRoutes); 
 app.use('/api/students',studentRouter)
 app.use('/api/subjects',subjectRouter)
+app.use('/api/classes',classesrouter)
 // WebSocket Events
 io.on('connection', (socket) => {
   console.log('Cliente conectado a WebSockets');
