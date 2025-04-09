@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Switch } from 'react-native';
 
 const SettingsScreen = () => {
   const [newPassword, setNewPassword] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -16,9 +19,14 @@ const SettingsScreen = () => {
 
     setTimeout(() => {
       console.log('Contraseña cambiada a:', newPassword);
+      console.log('Correo electrónico cambiado a:', newEmail);
+      console.log('Nombre de usuario cambiado a:', newUsername);
+      console.log('Modo oscuro activado:', isDarkMode);
       setIsLoading(false);
       alert('Configuración guardada');
       setNewPassword('');
+      setNewEmail('');
+      setNewUsername('');
     }, 2000);
   };
 
@@ -35,6 +43,30 @@ const SettingsScreen = () => {
         value={newPassword}
         onChangeText={setNewPassword}
       />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nuevo Correo Electrónico"
+        value={newEmail}
+        onChangeText={setNewEmail}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Nuevo Nombre de Usuario"
+        value={newUsername}
+        onChangeText={setNewUsername}
+      />
+
+      <View style={styles.switchContainer}>
+        <Text style={styles.switchLabel}>Modo Oscuro</Text>
+        <Switch
+          value={isDarkMode}
+          onValueChange={setIsDarkMode}
+          trackColor={{ false: '#767577', true: '#2563EB' }}
+          thumbColor={isDarkMode ? '#fff' : '#f4f3f4'}
+        />
+      </View>
 
       {isLoading ? (
         <ActivityIndicator size="large" color="#2563EB" style={styles.loader} />
@@ -103,8 +135,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  switchLabel: {
+    fontSize: 16,
+    color: '#374151',
+    marginRight: 10,
+  },
 });
 
 export default SettingsScreen;
-
-

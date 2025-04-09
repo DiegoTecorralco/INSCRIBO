@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => {
   React.useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 500,
+      duration: 800,
       useNativeDriver: true,
     }).start();
   }, [fadeAnim]);
@@ -37,25 +37,31 @@ const LoginScreen = ({ navigation }) => {
   return (
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
       <View style={styles.formContainer}>
-        {/* Aquí puedes agregar un logo si lo deseas */}
+        {/* Título */}
         <Text style={styles.title}>Iniciar Sesión</Text>
 
-        {/* Campo de usuario */}
-        <TextInput
-          style={styles.input}
-          placeholder="Usuario"
-          value={username}
-          onChangeText={setUsername}
-        />
+        {/* Campo de usuario con icono */}
+        <View style={styles.inputContainer}>
+          <Icon name="person-outline" size={20} color="#2563EB" style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Usuario"
+            value={username}
+            onChangeText={setUsername}
+          />
+        </View>
 
-        {/* Campo de contraseña */}
-        <TextInput
-          style={styles.input}
-          placeholder="Contraseña"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+        {/* Campo de contraseña con icono */}
+        <View style={styles.inputContainer}>
+          <Icon name="lock-closed-outline" size={20} color="#2563EB" style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Contraseña"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+        </View>
 
         {/* Mostrar mensaje de error si existe */}
         {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
@@ -64,7 +70,7 @@ const LoginScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Iniciar Sesión</Text>
         </TouchableOpacity>
-        
+
         {/* Botón de Registro */}
         <TouchableOpacity
           style={styles.registerButton}
@@ -83,32 +89,44 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#2563EB', // Fondo azul
   },
   formContainer: {
     width: '100%',
     maxWidth: 400,
     padding: 20,
-    borderRadius: 10,
+    borderRadius: 15,
     backgroundColor: '#fff',
-    elevation: 5, // Sombra para darle más profundidad
+    elevation: 10, // Sombra para darle profundidad
     alignItems: 'center',
+    shadowColor: '#000', 
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+    shadowOffset: { width: 0, height: 10 },
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#333',
   },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+    width: '100%',
+    borderBottomWidth: 2,
+    borderBottomColor: '#ddd',
+  },
+  icon: {
+    marginRight: 10,
+  },
   input: {
     height: 50,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    marginBottom: 15,
-    paddingLeft: 15,
-    borderRadius: 8,
-    width: '100%',
-    backgroundColor: '#fff',
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
+    paddingLeft: 10,
   },
   error: {
     color: '#FF0000', // Rojo para los mensajes de error
