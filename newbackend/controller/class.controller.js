@@ -66,7 +66,8 @@ const createNewClass = async (req, res) => {
 
 const getClassesByTeacherMatricula = async (req, res) => {
   try {
-    const teacherMatricula = req.params.matricula; // Recibe la matrícula del maestro desde los parámetros de la URL
+    // Recibe la matrícula del maestro desde los parámetros de la URL
+    const teacherMatricula = req.params.teacherMatricula;
 
     // Verifica si el maestro con la matrícula existe
     const teacher = await TeacherDAO.oneTeacher(teacherMatricula);
@@ -77,12 +78,20 @@ const getClassesByTeacherMatricula = async (req, res) => {
     // Ahora obtenemos todas las clases donde el maestro está asignado
     const classes = await ClassDAO.classesByTeacher(teacher._id); // Aquí usamos el _id del maestro para filtrar las clases
 
+    // Verificamos si el maestro tiene clases asignadas
+    if (classes.length === 0) {
+      return res.status(404).json({ error: 'El maestro no tiene clases asignadas.' });
+    }
+
     // Retornamos las clases del maestro
     res.status(200).json(classes);
   } catch (err) {
+    // Capturamos errores en caso de que ocurran durante la consulta
+    console.error('Error al obtener clases del maestro:', err.message);
     res.status(500).json({ error: 'Error al obtener clases del maestro', details: err.message });
   }
 };
+
 
 
 export {
