@@ -1,4 +1,4 @@
-import * as AttendanceDAO from '../daos/AttendanceDAO.js';
+import * as AttendanceDAO from '../dao/attendance.dao.js';
 import { getSocketInstance } from '../socket.js';
 
 const getAllAttendance = async (req, res) => {

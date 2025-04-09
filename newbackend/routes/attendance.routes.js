@@ -4,7 +4,7 @@ import {
   getAttendanceByDate,
   createNewAttendance,
   updateAttendanceStatus
-} from '../controllers/attendance.controller.js';
+} from '../controller/attendance.controller.js';
 
 const attendanceRoutes = Router();
 

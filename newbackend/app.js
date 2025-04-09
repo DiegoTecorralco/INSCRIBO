@@ -5,9 +5,10 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 
 import { initSocket } from './socket.js';
-import teachersRoutes from './routes/teachers.routes.js';
+import teachersRoutes from './routes/teacher.routes.js';
 import authRouter from './routes/auth.routes.js';
 import attendanceRoutes from './routes/attendance.routes.js'; 
+import { defaultMaxListeners } from 'events';
 
 const app = express();
 const server = http.createServer(app);
@@ -45,8 +46,4 @@ io.on('connection', (socket) => {
   });
 });
 
-// Iniciar el servidor
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+export default app;
