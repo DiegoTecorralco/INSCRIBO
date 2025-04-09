@@ -1,4 +1,4 @@
-import app from './app.js'; // Importa la configuración de la app
+import app from './app.js'; 
 import './config/databases.js'
 
 // Levanta el servidor

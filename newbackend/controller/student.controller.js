@@ -1,4 +1,4 @@
-import * as StudentDAO from '../daos/StudentDAO.js';
+import * as StudentDAO from '../dao/student.dao.js';
 
 const getAllStudents = async (req, res) => {
   try {
@@ -32,13 +32,38 @@ const getStudentsByGroup = async (req, res) => {
 };
 
 const createNewStudent = async (req, res) => {
+  const { name, lastname, matricula, cuatrimestre, grupo } = req.body;
+
+  // Validation checks
+  if (!name || !lastname || !matricula || !cuatrimestre || !grupo) {
+    return res.status(400).json({ error: 'Todos los campos son obligatorios' });
+  }
+
+  // Validate cuatrimestre: should be a number between 1 and 11
+  if (typeof cuatrimestre !== 'number' || cuatrimestre < 1 || cuatrimestre > 11) {
+    return res.status(400).json({ error: 'El cuatrimestre debe ser un número entre 1 y 11' });
+  }
+
+  // Validate grupo: should be one of 'A', 'B', or 'C'
+  if (!['A', 'B', 'C'].includes(grupo)) {
+    return res.status(400).json({ error: 'El grupo debe ser "A", "B" o "C"' });
+  }
+
   try {
+    // Check if matricula already exists
+    const existingStudent = await StudentDAO.findStudentByMatricula(matricula);
+    if (existingStudent) {
+      return res.status(400).json({ error: 'La matrícula ya está registrada' });
+    }
+
+    // Proceed to create new student
     const newStudent = await StudentDAO.createStudent(req.body);
     res.status(201).json(newStudent);
   } catch (err) {
     res.status(400).json({ error: 'Error al crear alumno', details: err.message });
   }
 };
+
 
 const updateStudentByMatricula = async (req, res) => {
   try {

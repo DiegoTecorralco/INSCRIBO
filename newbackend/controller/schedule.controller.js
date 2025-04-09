@@ -1,4 +1,4 @@
-import * as ScheduleDAO from '../daos/ScheduleDAO.js';
+import * as ScheduleDAO from '../dao/schedule.dao.js';
 
 const getAllSchedules = async (req, res) => {
   try {

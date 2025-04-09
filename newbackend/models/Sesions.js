@@ -16,14 +16,15 @@ const sessionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    createdAt: { 
-        type: Date, 
-        default: () => moment().tz("America/Mexico_City").toDate() 
-    },
-    lastAccessed: { 
-        type: Date, 
-        default: () => moment().tz("America/Mexico_City").toDate() 
-    },
+        createdAt: { 
+            type: String, 
+            immutable: true,
+            default: () => moment().tz("America/Mexico_City").format() 
+        },
+        lastAccessed: { 
+            type: String, 
+            default: () => moment().tz("America/Mexico_City").format() 
+        },
     status: { 
         type: String, 
         enum: ["Activa", "Inactiva", "Cerrada", "Expirada"], 

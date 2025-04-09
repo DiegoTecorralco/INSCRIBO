@@ -1,4 +1,4 @@
-import * as SubjectDAO from '../daos/SubjectDAO.js';
+import * as SubjectDAO from '../dao/subject.dao.js';
 
 const getAllSubjects = async (req, res) => {
   try {

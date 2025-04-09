@@ -23,13 +23,13 @@ const teacherSchema = new mongoose.Schema({
         required: true,
     },
     createdAt: { 
-        type: Date, 
-        immutable: true,  // No puede modificarse
-        default: () => moment().tz("America/Mexico_City").toDate() 
+        type: String, 
+        immutable: true,
+        default: () => moment().tz("America/Mexico_City").format() 
     },
     lastAccessed: { 
-        type: Date, 
-        default: () => moment().tz("America/Mexico_City").toDate() 
+        type: String, 
+        default: () => moment().tz("America/Mexico_City").format() 
     }
 });
 

@@ -9,6 +9,8 @@ import teachersRoutes from './routes/teacher.routes.js';
 import authRouter from './routes/auth.routes.js';
 import attendanceRoutes from './routes/attendance.routes.js'; 
 import { defaultMaxListeners } from 'events';
+import studentRouter from './routes/student.routes.js';
+import subjectRouter from './routes/subjec.routes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -35,8 +37,9 @@ app.use(cors({
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/teachers', teachersRoutes);
 app.use('/api/auth', authRouter);
-app.use('/api/attendance', attendanceRoutes); // Agrega tus rutas adicionales aquí
-
+app.use('/api/attendance', attendanceRoutes); 
+app.use('/api/students',studentRouter)
+app.use('/api/subjects',subjectRouter)
 // WebSocket Events
 io.on('connection', (socket) => {
   console.log('Cliente conectado a WebSockets');

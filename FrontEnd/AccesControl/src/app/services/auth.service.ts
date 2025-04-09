@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   // Métodos de almacenamiento
-  private getFromStorage(key: string): string | null {
+  public getFromStorage(key: string): string | null {
     if (isPlatformBrowser(this.platformId)) {
       return localStorage.getItem(key);
     }
