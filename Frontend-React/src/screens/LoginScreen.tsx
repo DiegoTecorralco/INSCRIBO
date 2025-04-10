@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { login } from '../services/loginInscribo';
 
-const LoginScreen = ({ navigation }) => {
+// Definir el tipo de la propiedad navigation si usas TypeScript
+interface LoginScreenProps {
+  navigation: any;
+}
+
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -17,20 +23,17 @@ const LoginScreen = ({ navigation }) => {
     }).start();
   }, [fadeAnim]);
 
-  const handleLogin = () => {
-    // Validación básica
-    if (!username || !password) {
-      setErrorMessage('Por favor, ingresa usuario y contraseña.');
-      return;
-    }
-
-    // Lógica de autenticación (simulada)
-    if (username === 'admin' && password === 'admin123') {
-      navigation.navigate('Dashboard', { isAdmin: true });
-    } else if (username === 'student' && password === '123456') {
-      navigation.navigate('Dashboard', { isAdmin: false });
-    } else {
-      setErrorMessage('Usuario o contraseña incorrectos');
+  const handleLogin = async () => {
+    try {
+      // Suponiendo que tu función login acepta un objeto con matricula y password
+      const res = await login({ matricula: username, password });
+      console.log("✅ Login exitoso:", res);
+      Alert.alert("Bienvenido", res.nombre); // o lo que devuelva tu API
+      // Aquí puedes navegar a la siguiente pantalla después del login exitoso
+      navigation.navigate('Dashboard'); // Suponiendo que la siguiente pantalla es Dashboard
+    } catch (err) {
+      console.log("❌ Error en login:", err.message);
+      Alert.alert("Error", err.message);
     }
   };
 
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     elevation: 10, // Sombra para darle profundidad
     alignItems: 'center',
-    shadowColor: '#000', 
+    shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 15,
     shadowOffset: { width: 0, height: 10 },
