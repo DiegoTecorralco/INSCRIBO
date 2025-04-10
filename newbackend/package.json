@@ -4,7 +4,7 @@
   "description": "Este proyecto tiene la finalidad de Autumatizar el Registro de inscripciones de un Centro Escolar Medio Superior, con la finalidad de automatizar el proceso de inscripciones.\r ### Paleta de colores",
   "main": "index.js",
   "type": "module",
-  "scripts": {  
+  "scripts": {
     "dev": " nodemon backend/index.js "
   },
   "keywords": [],
@@ -21,6 +21,8 @@
     "node-cron": "^3.0.3",
     "os": "^0.1.2",
     "socket.io": "^4.8.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "time-zone": "^2.0.0",
     "uuid": "^11.1.0"
   },

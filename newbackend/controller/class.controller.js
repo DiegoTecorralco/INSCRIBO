@@ -1,5 +1,6 @@
 import * as ClassDAO from '../dao/class.dao.js';
 import *as TeacherDAO from '../dao/teachers.dao.js'
+
 const getAllClasses = async (req, res) => {
   try {
     const classes = await ClassDAO.allClasses();

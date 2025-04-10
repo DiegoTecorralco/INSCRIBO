@@ -3,6 +3,8 @@ import http from 'http';
 import morgan from 'morgan';
 import cors from 'cors';
 import { Server } from 'socket.io';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './docs/swagger.js';
 
 import { initSocket } from './socket.js';
 import teachersRoutes from './routes/teacher.routes.js';
@@ -34,6 +36,8 @@ app.use(cors({
   origin: ['http://localhost:4200', 'http://10.10.60.2:4200'],
   credentials: true
 }));
+// Ruta de la documentación Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Rutas de la API
 app.use('/api/attendance', attendanceRoutes);

@@ -1,5 +1,5 @@
 import * as ScheduleDAO from '../dao/schedule.dao.js';
-import { classById } from '../dao/class.dao.js'; 
+import { classById } from '../dao/class.dao.js';  // Mantienes la importación de classById
 
 const getAllSchedules = async (req, res) => {
   try {
@@ -20,15 +20,14 @@ const getScheduleByDay = async (req, res) => {
   }
 };
 
-
-import Class from '../models/Class.js'; // o donde tengas tu modelo de Class
+import Class from '../models/Class.js'; // Asegúrate de que esta importación está correcta
 
 const createNewSchedule = async (req, res) => {
   try {
     const classId = req.body.class;
 
-    // Validamos que el ID de la clase exista en la colección
-    const existingClass = await Class.findById(classId);
+    // Validamos que el ID de la clase exista en la colección usando el método classById
+    const existingClass = await classById(classId); // Aquí usas classById importado
 
     if (!existingClass) {
       return res.status(404).json({ 
