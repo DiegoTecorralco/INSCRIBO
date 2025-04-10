@@ -12,6 +12,7 @@ import { defaultMaxListeners } from 'events';
 import studentRouter from './routes/student.routes.js';
 import subjectRouter from './routes/subjec.routes.js';
 import classesrouter from './routes/class.routes.js';
+import schedulesRouter from './routes/schedule.routes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -38,7 +39,7 @@ app.use(cors({
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/teachers', teachersRoutes);
 app.use('/api/auth', authRouter);
-app.use('/api/attendance', attendanceRoutes); 
+app.use('/api/schedule', schedulesRouter); 
 app.use('/api/students',studentRouter)
 app.use('/api/subjects',subjectRouter)
 app.use('/api/classes',classesrouter)
